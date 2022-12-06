@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ComplementaryController {
 
     @GetMapping("/comp/{color}")
-    public String calculateRectangular(@PathVariable String color) {
+    public String calculateComplementary(@PathVariable String color) {
 
 
         if (color.equals("Red")) {
