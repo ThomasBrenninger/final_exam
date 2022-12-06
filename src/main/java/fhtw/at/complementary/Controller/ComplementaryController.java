@@ -1,10 +1,11 @@
 package fhtw.at.complementary.Controller;
 
+import fhtw.at.complementary.Service.ComplementaryService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+/*@RestController
 public class ComplementaryController {
 
     @GetMapping("/comp/{color}")
@@ -25,4 +26,18 @@ public class ComplementaryController {
             return "Yellow";
         }
     }
+}*/
+@RestController
+public class ComplementaryController {
+    private final ComplementaryService compService;
+
+    public ComplementaryController (ComplementaryService compService){
+        this.compService = compService;
+    }
+
+    @GetMapping("/comp/{color}")
+    String getColor(@PathVariable String color){
+        return compService.getComplementary(color);
+    }
+
 }
